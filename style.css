@@ -1,0 +1,12 @@
+.nav-item{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 30px;
+    margin: 100px;
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
