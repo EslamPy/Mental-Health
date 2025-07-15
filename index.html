@@ -1,66 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"content="Mental Health Project - A platform to support mental health awareness and resources." />
     <meta name="keywords" content="mental health, support, awareness, resources, community" />
     <meta name="author" content="Mental Health Project Team" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- SEO OPTIMIZATION -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Google Font -->
-
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <title>Me   ntal Health Project</title>
+    <title>Mental Health Support</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <img src="https://static.vecteezy.com/system/resources/previews/027/127/592/original/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Microsoft Logo"  style="width: 3%;" />
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="betengan"><button>login</button></a>
-        <a href="#" class="betengan"><button>signup</button></a>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://static.vecteezy.com/system/resources/previews/027/127/592/original/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Mental Health Logo" id="logo">
+            <span>MindWell</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="location.href='login.html'">Login</button>
+                <button class="signup-btn" onclick="location.href='register.html'">Sign Up</button>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>
-                We are dedicated to raising awareness about mental health and
-                providing resources for those in need.
-            </p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Mental Health Matters</h1>
+            <p>Track your journey, share your story, and find support in our community.</p>
+        </div>
+    </section>
 
-        <section id="resources">
-            <h2>Resources</h2>
-            <p>Find helpful resources and support networks.</p>
-        </section>
+    <!-- Image Upload and Analysis Section -->
+    <section class="analysis-section">
+        <div class="container">
+            <h2>Emotion Analysis</h2>
+            <div class="upload-container">
+                <div class="upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
+                    <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M12 5L7 10M12 5L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 15V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Upload Your Photo</h3>
+                    <p>Drag and drop your image here or click to browse</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+                <div class="preview-container" id="previewContainer" style="display: none;">
+                    <div class="preview-header">
+                        <h3>Preview</h3>
+                        <button class="reset-btn" onclick="resetUpload()">
+                            <span class="reset-icon">↺</span> Choose Different Photo
+                        </button>
+                    </div>
+                    <div class="preview-content">
+                        <img id="imagePreview" alt="Preview">
+                        <div class="preview-actions">
+                            <button class="analyze-btn" id="analyzeBtn">Analyze Emotion</button>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>
-                If you have any questions or need support, feel free to reach out.
-            </p>
-        </section>
-    </main>
+                <!-- <div class="result-container" id="resultContainer" style="display: none;">
+                    <div class="result-content">
+                        <div id="emotionResult"></div>
+                        <div class="result-actions">
+                            <button class="continue-btn" onclick="document.getElementById('profileSection').scrollIntoView({behavior: 'smooth'})">View Full Report</button>
+                        </div>
 
-    <footer>
-        <p>&copy; 2023 Mental Health Project. All rights reserved.</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://static.vecteezy.com/system/resources/previews/027/127/592/original/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Microsoft Logo">
+                    <span>MindWell</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>About</h4>
+                        <a href="#">Our Mission</a>
+                        <a href="#">Team</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Microsoft MindWell. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
-    
-</body>
-<script src="style.js"></script>
 
+    <script src="style.js"></script>
+</body>
 </html>
