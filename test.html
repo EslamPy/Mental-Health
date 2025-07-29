@@ -1,0 +1,265 @@
+<section class="user-info-section" id="profile">
+    <div class="container">
+        <div class="section-header">
+            <h2>Mental Health Assessment</h2>
+            <p>Complete this form to help us provide more personalized recommendations</p>
+        </div>
+        <div class="user-form">
+            <form id="userInfoForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Enter your last name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Enter your age" min="1" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="stressLevel">Current Stress Level</label>
+                    <select id="stressLevel" required>
+                        <option value="">Select your current stress level</option>
+                        <option value="none">No stress</option>
+                        <option value="mild">Mild stress</option>
+                        <option value="moderate">Moderate stress</option>
+                        <option value="high">High stress</option>
+                        <option value="severe">Severe stress</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="sleepQuality">Sleep Quality</label>
+                    <select id="sleepQuality" required>
+                        <option value="">How well have you been sleeping?</option>
+                        <option value="excellent">Excellent (8+ hours)</option>
+                        <option value="good">Good (6-8 hours)</option>
+                        <option value="fair">Fair (4-6 hours)</option>
+                        <option value="poor">Poor (2-4 hours)</option>
+                        <option value="very-poor">Very poor (< 2 hours)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mentalHealthHistory">Previous Mental Health Support</label>
+                    <select id="mentalHealthHistory" required>
+                        <option value="">Have you received mental health support before?</option>
+                        <option value="none">No previous support</option>
+                        <option value="therapy">Therapy/Counseling</option>
+                        <option value="medication">Medication</option>
+                        <option value="both">Both therapy and medication</option>
+                        <option value="other">Other support methods</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="primaryConcern">Primary Mental Health Concern</label>
+                    <select id="primaryConcern" required>
+                        <option value="">What is your main concern?</option>
+                        <option value="anxiety">Anxiety</option>
+                        <option value="depression">Depression</option>
+                        <option value="stress">Stress Management</option>
+                        <option value="sleep">Sleep Issues</option>
+                        <option value="relationships">Relationship Issues</option>
+                        <option value="work">Work-related Stress</option>
+                        <option value="trauma">Trauma/PTSD</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Save Information</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Image Upload and Analysis Section -->
+    <section class="analysis-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Emotion Analysis</h2>
+                <p>Upload a photo of yourself to analyze your current emotional state</p>
+            </div>
+            <div class="upload-container">
+                <div class="upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
+                    <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M12 5L7 10M12 5L17 10" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3 15V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V15"stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h3>Upload Your Photo</h3>
+                    <p>Drag and drop your image here or click to browse</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+
+                <div class="preview-container" id="previewContainer">
+                    <div class="preview-header">
+                        <h3>Preview</h3>
+                        <button class="reset-btn" onclick="resetUpload()">
+                            <i class="fas fa-redo-alt"></i> Choose Different Photo
+                        </button>
+                    </div>
+                    <div class="preview-content">
+                        <img id="imagePreview" alt="Preview">
+                        <div class="preview-actions">
+                            <button class="analyze-btn" id="analyzeBtn">
+                                <i class="fas fa-brain"></i> Analyze Emotion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-container" id="resultContainer">
+                    <div class="result-content">
+                        <div id="emotionResult"></div>
+                        <div class="recommendations" id="recommendations">
+                            <h3>Recommendations</h3>
+                            <ul id="recommendationsList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Results Section -->
+    <section class="detailed-results-section" id="detailedResults">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Analysis Results</h2>
+                <p>Comprehensive assessment of your emotional state and personalized recommendations</p>
+            </div>
+            <div class="results-card">
+                <div class="results-header">
+                    <div class="results-title">
+                        <h3>Mental Health Assessment</h3>
+                        <p class="results-date" id="analysisDate"></p>
+                    </div>
+                    <div class="results-id">
+                        <p>ID: <span id="analysisId"></span></p>
+                    </div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="results-profile">
+                        <div class="results-image">
+                            <img id="resultImage" alt="Analysis Image">
+                        </div>
+                        <div class="results-emotion">
+                            <h4>Detected Emotion</h4>
+                            <div class="emotion-display" id="resultEmotion"></div>
+                            <p class="confidence" id="resultConfidence"></p>
+                        </div>
+                    </div>
+
+                    <div class="results-details">
+                        <div class="details-section">
+                            <h4><i class="fas fa-user"></i> Personal Information</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Name:</span>
+                                    <span class="detail-value" id="resultName"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Age:</span>
+                                    <span class="detail-value" id="resultAge"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Gender:</span>
+                                    <span class="detail-value" id="resultGender"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="details-section">
+                            <h4><i class="fas fa-heartbeat"></i> Mental Health Information</h4>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Stress Level:</span>
+                                    <span class="detail-value" id="resultStressLevel"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Sleep Quality:</span>
+                                    <span class="detail-value" id="resultSleepQuality"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Primary Concern:</span>
+                                    <span class="detail-value" id="resultPrimaryConcern"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Previous Support:</span>
+                                    <span class="detail-value" id="resultMentalHealthHistory"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-recommendations">
+                    <h4><i class="fas fa-lightbulb"></i> Personalized Recommendations</h4>
+                    <div class="recommendation-cards" id="detailedRecommendations">
+                        <!-- Recommendation cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="action-btn primary" onclick="printResults()">
+                        <i class="fas fa-print"></i> Print Results
+                    </button>
+                    <button class="action-btn secondary" onclick="saveToHistory()">
+                        <i class="fas fa-save"></i> Save to History
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section" id="history">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Emotion History</h2>
+                <p>Track your emotional well-being over time to identify patterns and progress</p>
+            </div>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th><i class="far fa-calendar-alt"></i> Date & Time</th>
+                            <th><i class="far fa-image"></i> Image</th>
+                            <th><i class="far fa-smile"></i> Emotion</th>
+                            <th><i class="fas fa-percentage"></i> Confidence</th>
+                            <th><i class="fas fa-chart-line"></i> Stress Level</th>
+                            <th><i class="fas fa-moon"></i> Sleep Quality</th>
+                            <th><i class="fas fa-cog"></i> Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <!-- History entries will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="history-empty" id="historyEmpty">
+                <i class="fas fa-history fa-3x"></i>
+                <p>No history records yet. Complete your first analysis to see your history.</p>
+            </div>
+        </div>
+    </section>

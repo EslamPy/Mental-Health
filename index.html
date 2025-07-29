@@ -1,83 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"content="Mental Health Project - A platform to support mental health awareness and resources." />
-    <meta name="keywords" content="mental health, support, awareness, resources, community" />
-    <meta name="author" content="Mental Health Project Team" />
+    <meta name="description" content="MindWell - Microsoft's Mental Health Analysis Platform" />
+    <meta name="keywords" content="mental health, Microsoft, emotion analysis, wellness, support" />
+    <meta name="author" content="Microsoft MindWell Team" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- SEO OPTIMIZATION -->
-    <title>Mental Health Support</title>
+    <title>MindWell | Microsoft Mental Health Analysis</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
-            <img src="https://static.vecteezy.com/system/resources/previews/027/127/592/original/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Mental Health Logo" id="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+                alt="Microsoft Logo" id="logo">
             <span>MindWell</span>
         </div>
         <div class="nav-links">
             <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
+            <a href="#about">How It Works</a>
+            <a href="#profile">Assessment</a>
+            <a href="#history">History</a>
             <div class="auth-buttons">
-                <button class="login-btn" onclick="location.href='login.html'">Login</button>
-                <button class="signup-btn" onclick="location.href='register.html'">Sign Up</button>
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="signup-btn">Sign Up</a>
             </div>
         </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Your Mental Health Matters</h1>
-            <p>Track your journey, share your story, and find support in our community.</p>
-        </div>
-    </section>
-
-    <!-- Image Upload and Analysis Section -->
-    <section class="analysis-section">
-        <div class="container">
-            <h2>Emotion Analysis</h2>
-            <div class="upload-container">
-                <div class="upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
-                    <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5V19M12 5L7 10M12 5L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 15V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <h3>Upload Your Photo</h3>
-                    <p>Drag and drop your image here or click to browse</p>
-                    <input type="file" id="imageInput" accept="image/*" hidden>
-                </div>
-                <div class="preview-container" id="previewContainer" style="display: none;">
-                    <div class="preview-header">
-                        <h3>Preview</h3>
-                        <button class="reset-btn" onclick="resetUpload()">
-                            <span class="reset-icon">↺</span> Choose Different Photo
-                        </button>
-                    </div>
-                    <div class="preview-content">
-                        <img id="imagePreview" alt="Preview">
-                        <div class="preview-actions">
-                            <button class="analyze-btn" id="analyzeBtn">Analyze Emotion</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="result-container" id="resultContainer" style="display: none;">
-                    <div class="result-content">
-                        <div id="emotionResult"></div>
-                        <div class="result-actions">
-                            <button class="continue-btn" onclick="document.getElementById('profileSection').scrollIntoView({behavior: 'smooth'})">View Full Report</button>
-                        </div>
-
-                    </div>
-                </div> -->
+            <p>MindWell uses advanced Microsoft AI to analyze your emotional well-being and provide personalized
+                recommendations for better mental health.</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="primary-btn">
+                    <i class="fas fa-user-plus"></i> Get Started</a>
+                <a href="#about" class="secondary-btn">
+                    <i class="fas fa-info-circle"></i> Learn More</a>
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Our Microsoft AI-powered platform analyzes facial expressions to assess emotional states and provide
+                    personalized recommendations</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Create Account</h3>
+                    <p>Sign up and complete your profile with basic information about your mental health</p>
+                    <i class="fas fa-user-plus step-illustration"></i>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Upload Photo</h3>
+                    <p>Take or upload a current photo for our AI to analyze your emotional state</p>
+                    <i class="fas fa-camera step-illustration"></i>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Get Analysis</h3>
+                    <p>Receive detailed emotional analysis and personalized recommendations</p>
+                    <i class="fas fa-chart-pie step-illustration"></i>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your emotional well-being over time with our comprehensive history</p>
+                    <i class="fas fa-chart-line step-illustration"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Information Form -->
+
+    <!--  the backend logic will be here and is gonna be showed in the output after the user make login or signin -->
 
 
     <!-- Footer -->
@@ -85,7 +100,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="https://static.vecteezy.com/system/resources/previews/027/127/592/original/microsoft-logo-microsoft-icon-transparent-free-png.png" alt="Microsoft Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+                        alt="Microsoft Logo">
                     <span>MindWell</span>
                 </div>
                 <div class="footer-links">
@@ -103,9 +119,9 @@
                     </div>
                     <div class="footer-column">
                         <h4>Connect</h4>
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Facebook</a>
+                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
                     </div>
                 </div>
             </div>
@@ -115,6 +131,8 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="style.js"></script>
 </body>
+
 </html>

@@ -3,32 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mental Health Support</title>
+    <title>Login - MindWell | Microsoft Mental Health Analysis</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         .auth-container {
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--accent-color);
-            padding: 1rem;
+            background: linear-gradient(135deg, #f0f3f7, #e3e8ef);
+            padding: 2rem;
         }
 
-        .auth-box {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        .auth-content {
+            display: flex;
             width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-image {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920&auto=format&fit=crop') center/cover;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .auth-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 120, 212, 0.7);
+        }
+
+        .image-content {
+            position: relative;
+            color: white;
+            text-align: center;
             max-width: 400px;
         }
 
-        .auth-box h2 {
+        .image-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .image-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .auth-form {
+            flex: 1;
+            padding: 3rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-logo img {
+            height: 28px;
+        }
+
+        .auth-logo span {
+            font-size: 1.5rem;
+            font-weight: 600;
             color: var(--primary-color);
-            text-align: center;
+        }
+
+        .auth-header {
             margin-bottom: 2rem;
+        }
+
+        .auth-header h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .auth-header p {
+            color: var(--neutral-color);
+            font-size: 1.1rem;
         }
 
         .form-group {
@@ -39,74 +113,233 @@
             display: block;
             margin-bottom: 0.5rem;
             color: var(--text-color);
+            font-weight: 500;
         }
 
         .form-group input {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 6px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.2s;
+            background: var(--accent-color);
         }
 
         .form-group input:focus {
             outline: none;
             border-color: var(--primary-color);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 120, 212, 0.1);
+        }
+
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
         }
 
         .auth-btn {
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
         }
 
         .auth-btn:hover {
-            background-color: var(--secondary-color);
+            background-color: #006cbd;
+            transform: translateY(-1px);
         }
 
-        .auth-links {
-            margin-top: 1.5rem;
+        .divider {
+            display: flex;
+            align-items: center;
             text-align: center;
+            color: var(--neutral-color);
+            margin: 1.5rem 0;
         }
 
-        .auth-links a {
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            font-size: 0.95rem;
+        }
+
+        .social-login {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.875rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--text-color);
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .auth-footer {
+            text-align: center;
+            color: var(--neutral-color);
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 500;
         }
 
-        .auth-links a:hover {
+        .auth-footer a:hover {
             text-decoration: underline;
+        }
+
+        @media (min-width: 1024px) {
+            .auth-image {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 1rem;
+            }
+
+            .auth-form {
+                padding: 2rem;
+            }
+
+            .auth-header h2 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="auth-container">
-        <div class="auth-box">
-            <h2>Welcome Back</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+        <div class="auth-content">
+            <div class="auth-image">
+                <div class="image-content">
+                    <h2>Welcome to MindWell</h2>
+                    <p>Your journey to better mental health starts here. Join our community and discover personalized insights about your emotional well-being.</p>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+            </div>
+            <div class="auth-form">
+                <div class="auth-logo">
+                    <img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/microsoft_logo_icon_147261.png" alt="Microsoft Logo">
+                    <span>MindWell</span>
                 </div>
-                <button type="submit" class="auth-btn">Login</button>
-            </form>
-            <div class="auth-links">
-                <p>Don't have an account? <a href="register.html">Sign Up</a></p>
-                <p><a href="#">Forgot Password?</a></p>
+                <div class="auth-header">
+                    <h2>Welcome back</h2>
+                    <p>Sign in to continue your journey</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign in</button>
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn">
+                            <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" alt="Google">
+                            <span>Continue with Google</span>
+                        </button>
+                        <button type="button" class="social-btn">
+                            <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Facebook_icon-icons.com_66805.png" alt="Facebook">
+                            <span>Continue with Facebook</span>
+                        </button>
+                    </div>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="register.html">Sign up</a></p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // For demo purposes, redirect to index
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html> 

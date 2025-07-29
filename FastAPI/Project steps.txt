@@ -1,0 +1,32 @@
+Hey everyone, hope you enjoyed the session today! 
+Project steps:
+- Data modeling 
+    - objects e.g. user, post, ..
+    - attributes e.g. id, name, … 
+    - attribute types e.g. string, int, …
+- API Design
+    - API e.g. GET /moods
+    - Inputs and outputs
+    - Description of what is does internally
+- Creating python data models
+    - You can use a 3rd party library if you want
+- Creating python api structure using fast api
+- Integrating with sqlite
+
+Requirements:
+- Get mood entries
+- Create a mood entry given an image
+
+Example API:
+- GET /moods
+- POST /mood
+    - Takes an image
+    - Stores an image on disk
+    - Calls the model with the image and gets a mood response
+    - Creates a new entry with the image path, model response and user id
+    - This can be separated into multiple APIs
+
+For the Task they need to:
+1. implement registration and login flaws for user with salting support.
+2. use JWT tokens for authorization.
+3. Input validation and sanitization.
